@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="This is the activity for JS Track JS Circles for ES5/ES6">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>JS Circles</title>
+   <title>JS Circle Demo</title>
+   <script src="circle.js"></script>
 </head>
 <body>
-    <button id="red"></button><!--
---><button id="green"></button><!--
---><button id="blue"></button><!--
---><div id="circles"></div><!--
---><script src="js_circles_v3.js"></script>
+   <div id='canvas'></div>
+   <script>
+      // initialize cLib (circleLibrary) with 100 circles
+      let cLib = new Circles(300);
+  
+      // draw 100 circles on #canvas
+      cLib.draw_circles("canvas");
+      // any other code you need to make this work
+   </script>
 </body>
-</html>
