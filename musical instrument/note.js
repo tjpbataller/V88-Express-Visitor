@@ -1,6 +1,6 @@
 class Note
 {
-    constructor(name, pitch = 1)
+    constructor(name = "", pitch = 1)
     {
         this.namelist = 
         {
@@ -44,6 +44,7 @@ class Instrument
     }
     addNote(name, pitch)
     {
+        let note = new Note(name, pitch);
         this.record.push(
             {
                 name: name,
@@ -54,26 +55,26 @@ class Instrument
     removeLastNote()
     {
         this.record.pop();
+        console.log(this.record);
     }
-    shuffleRecord()
+    shuffleRecord(array)
     {
+        var copy = [], n = array.length, i;
 
+        // While there remain elements to shuffle…
+        while (n) {
+      
+          // Pick a remaining element…
+          i = Math.floor(Math.random() * n--);
+      
+          // And move it to the new array.
+          copy.push(array.splice(i, 1)[0]);
+        }
+      
+        return copy;
+    }
+    changeNote(index, key, pitch)
+    {
+        this.record[index] = {name: key, pitch: pitch};
     }
 }
-
-document.querySelectorAll("button").forEach(function(el)
-{
-    el.addEventListener("click",function(ev)
-    {
-        ev.stopPropagation();
-        let key = this.getAttribute("data-note");
-        let device = this.parentElement.id;
-        let pitch = Math.floor(Math.random() * 7) + 1;
-        let instrument = new Instrument;
-        instrument.addNote(key, pitch);
-        let note = new Note(key, pitch);
-        let link = note.show(key, device);
-        let audio = new Audio(link);
-        audio.play();
-    },false);
-})
