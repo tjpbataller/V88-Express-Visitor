@@ -39,7 +39,7 @@ module.exports = function(request, response){
     {
         if (err == null || request.url === "/") {
             console.log("exists");
-            if(fileExt === "png" || fileExt === "jpg" || fileExt === "ico")
+            if(fileExt === "png" || "jpg" || "ico")
             {
                 fs.readFile(filePath,function(errors, contents)
                 {
@@ -63,7 +63,6 @@ module.exports = function(request, response){
                     }
                 })
             }
-
         }
         else
         {
